@@ -8,15 +8,13 @@ public class MyMain {
 
     public static void main(String[] args) {
         Student student= new Student();
-        student.setName("Zane");
-        student.setId(200);
-        student.setField("BSc in Computer Science");
         Configuration con = new Configuration().configure().addAnnotatedClass(Student.class);
         SessionFactory sf = con.buildSessionFactory();
         Session session = sf.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        session.save(student);
         tx.commit();
+        student=(Student) session.get(Student.class,600L);
+        System.out.println(student.getName());
 
     }
 

@@ -16,6 +16,16 @@ public class Student {
     }
     @Column(name="Field")
     private String field;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", Name='" + Name + '\'' +
+                ", field='" + field + '\'' +
+                '}';
+    }
+
     public long getId() {
         return id;
     }
